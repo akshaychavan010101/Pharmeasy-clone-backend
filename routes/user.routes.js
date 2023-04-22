@@ -77,7 +77,7 @@ UserRouter.get(
     session: false,
   }),
   function (req, res) {
-    res.send({ msg: "Login Successful" , user : req.user});
+   console.log(req.user);
   }
 );
 
