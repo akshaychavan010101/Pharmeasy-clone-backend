@@ -8,7 +8,7 @@ const { UserRouter } = require("./routes/user.routes");
 const { ProductRouter } = require("./routes/product.routes");
 app.use(cors(
   {
-    origin: "https://boisterous-sopapillas-45e84e.netlify.app",
+    origin: "https://fair-pink-fawn-cape.cyclic.app/user/auth/google",
   }
 ));
 app.use(express.json());
