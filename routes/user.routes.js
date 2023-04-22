@@ -8,6 +8,10 @@ const redis = require("redis");
 const { authentication } = require("../middlewares/authentication");
 const { Blacklist } = require("../models/blacklist.model");
 const passport = require("../middlewares/google.auoth");
+const cors = require("cors");
+
+
+UserRouter.use(cors());
 
 UserRouter.post("/signup", async (req, res) => {
   try {
