@@ -9,7 +9,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://medeasyin.netlify.app/indexa.html",
+      callbackURL: "https://medeasyin.netlify.app/HTML/indexa.html",
       scope: ["email", "profile"],
     },
     async function (accessToken, refreshToken, profile, cb) {
