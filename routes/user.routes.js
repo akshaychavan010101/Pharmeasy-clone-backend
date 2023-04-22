@@ -7,7 +7,8 @@ const { User } = require("../models/user.model");
 const redis = require("redis");
 const { authentication } = require("../middlewares/authentication");
 const { Blacklist } = require("../models/blacklist.model");
-const passport = require("../middlewares/google.auoth");
+const passport = require("passport");
+require("../middlewares/google.auoth");
 
 
 UserRouter.post("/signup", async (req, res) => {
