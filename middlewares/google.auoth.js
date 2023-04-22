@@ -9,7 +9,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://127.0.0.1:5500/Frontend/HTML/indexa.html",
+      callbackURL: "https://boisterous-sopapillas-45e84e.netlify.app/HTML/index.html",
       scope: ["email", "profile"],
     },
     async function (accessToken, refreshToken, profile, cb) {
