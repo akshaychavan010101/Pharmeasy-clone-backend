@@ -6,7 +6,11 @@ const { connection } = require("./config/db");
 const cors = require("cors");
 const { UserRouter } = require("./routes/user.routes");
 const { ProductRouter } = require("./routes/product.routes");
-app.use(cors());
+app.use(cors(
+  {
+    origin: "https://fair-pink-fawn-cape.cyclic.app",
+  }
+));
 app.use(express.json());
 app.use(cookieParser());
 
