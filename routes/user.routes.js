@@ -102,7 +102,7 @@ UserRouter.get("/forgot-password", (req, res) => {
       <h1>MedEasyIn</h1>
       <p>Click on the link below to change your password</p>
       <b>This is a one time link to update your password</b>
-      <a href="https://medeasyin-password-update.netlify.app?webid=${webid}">Click here to reset your password</a>
+      <a href="https://medeasyin-password-update.netlify.app?webid=${webid}&email=${email}">Click here to reset your password</a>
 `,
       },
     ];
