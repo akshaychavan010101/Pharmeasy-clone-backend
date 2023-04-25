@@ -127,17 +127,17 @@ UserRouter.patch("/password-update", async (req, res) => {
     const user = await UserModel.findOne({ email });
     if (user) {
       if (webid === undefined) {
-        return res.send({ msg: "This link is not valid" });
+        return res.json({ msg: "This link is not valid" });
       }
       if (user.webid.includes(webid)) {
-        return res.send({ msg: "This link is already used" });
+        return res.json({ msg: "This link is already used" });
       }
 
       user.password = password;
       user.webid.push(webid);
 
       await user.save();
-      res.status(200).send({ msg: "Password updated successfully" });
+      res.status(200).json({ msg: "Password updated successfully" });
     } else {
       res.send({ msg: "something went wrong" });
     }
