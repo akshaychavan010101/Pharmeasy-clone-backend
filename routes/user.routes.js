@@ -51,8 +51,18 @@ UserRouter.post("/signin", async (req, res) => {
       }
     );
 
-    req.cookies.token = token;
-    req.cookies.refreshToken = refreshToken;
+    // set the cookies here with value , expiry date and https
+    res.cookie("token", token, {
+      expires: new Date(Date.now() + 86400000),
+      httpOnly: false,
+      domain: "https://fair-pink-fawn-cape.cyclic.app",
+    });
+
+    res.cookie("refreshToken", refreshToken, {
+      expires: new Date(Date.now() + 604800000),
+      httpOnly: false,
+      domain: "https://fair-pink-fawn-cape.cyclic.app",
+    });
 
     TosendUser.password = "**********";
     res.send({
@@ -125,13 +135,12 @@ UserRouter.patch("/password-update", async (req, res) => {
   try {
     const { email, password, webid } = req.query;
 
-    if(email === undefined || password === undefined || webid === undefined){
+    if (email === undefined || password === undefined || webid === undefined) {
       return res.json({ msg: "Please provide all the details" });
     }
 
-
     const user = await User.findOne({ email });
-    console.log(email, password, webid,user);
+    console.log(email, password, webid, user);
     if (user) {
       if (webid === undefined) {
         return res.json({ msg: "This link is not valid" });
@@ -146,7 +155,7 @@ UserRouter.patch("/password-update", async (req, res) => {
       await user.save();
       res.status(200).json({ msg: "Password updated successfully" });
     } else {
-      res.send({ msg: "Cannot find the user", error : "Error" });
+      res.send({ msg: "Cannot find the user", error: "Error" });
     }
   } catch (error) {
     console.log(error);
