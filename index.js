@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 
 app.use(
   session({
-    store: new RedisStore({ client: redisClient }),
+    store: new (require("connect-pg-simple")(session))(),
     name: process.env.SESSION_NAME,
     secret: process.env.SESSION_SECRET,
     resave: false,
