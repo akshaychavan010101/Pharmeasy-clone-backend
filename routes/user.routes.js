@@ -53,6 +53,7 @@ UserRouter.post("/signin", async (req, res) => {
 
     req.cookies.token = token;
     req.cookies.refreshToken = refreshToken;
+    res.cookie("token", token, { httpOnly: true });
 
     TosendUser.password = "**********";
     res.send({
